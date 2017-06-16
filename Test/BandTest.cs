@@ -32,11 +32,24 @@ namespace BandTracker
     public void Equals_NamesAreTheSame_True()
     {
       //Arrange, Act
-      Band firstBand = new Band("Radiohead");
-      Band secondBand = new Band("Radiohead");
+      Band firstBand = new Band("Radiohead" );
+      Band secondBand = new Band("Radiohead" );
 
       //Assert
-      Assert.Equal(firstBand, secondBand);
+      Assert.Equal(firstBand, secondBand );
+    }
+
+    [Fact]
+    public void Save_SavesBandToDatabase_True()
+    {
+      //Arrange
+      Band testBand = new Band("Radiohead" );
+      //Act
+      testBand.Save();
+      List<Band> result = Band.GetAll();
+      List<Band> testList = new List<Band>{testBand };
+      //Assert
+      Assert.Equal(testList, result );
     }
 
   }

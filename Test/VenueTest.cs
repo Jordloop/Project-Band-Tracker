@@ -32,11 +32,24 @@ namespace BandTracker
     public void Test_NamesAreTheSame_True()
     {
       //Arrange, Act
-      Venue firstVenue = new Venue("Al's Den");
-      Venue secondVenue = new Venue("Al's Den");
+      Venue firstVenue = new Venue("Al's Den" );
+      Venue secondVenue = new Venue("Al's Den" );
 
       //Assert
-      Assert.Equal(firstVenue, secondVenue);
+      Assert.Equal(firstVenue, secondVenue );
+    }
+
+    [Fact]
+    public void Test_SavesVenueToDatabase_True()
+    {
+      //Arrange
+      Venue testVenue = new Venue("Al's Den" );
+      //Act
+      testVenue.Save();
+      List<Venue> result = Venue.GetAll();
+      List<Venue> testList = new List<Venue>{testVenue };
+      //Assert
+      Assert.Equal(testList, result );
     }
 
 
