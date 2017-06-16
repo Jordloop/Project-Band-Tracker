@@ -1,0 +1,15 @@
+@{
+  Layout ="Shared/_Layout.cshtml";
+}
+<h2>@Model["Venue"].GetName()</h2>
+@if (@Model["Band"].Count != 0)
+{
+  <ol>
+    @foreach (var band in @Model["Band"])
+    {
+      <li><a href="/band/@band.GetId()">@band.GetName()</a>
+
+      </li>
+    }
+  </ol>
+}

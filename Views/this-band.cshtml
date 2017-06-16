@@ -7,8 +7,7 @@
   <ol>
     @foreach (var venue in @Model["Venue"])
     {
-      <li>@venue.GetName()</li>
+      <li><a href="/venue/@venue.GetId()">@venue.GetName()</a></li>
     }
   </ol>
 }
-<a href='band/@Model["Band"].GetId()/delete'>Link<a>

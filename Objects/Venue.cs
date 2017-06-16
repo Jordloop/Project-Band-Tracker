@@ -211,6 +211,7 @@ namespace BandTracker
 //Update()
     public void Update(string newName )
     {
+      Console.WriteLine("Ding!");
       SqlConnection conn = DB.Connection();
       conn.Open();
 
