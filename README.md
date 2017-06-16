@@ -12,7 +12,7 @@
 
 
 In SQLCMD:
-CREATE DATABASE band_tracker; > GO > USE band_tracker > GO > CREATE TABLE venues(id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE bands (id INT IDENTITY(1,1), name VARCHAR(255)); > GO
+CREATE DATABASE band_tracker; > GO > USE band_tracker > GO > CREATE TABLE venues(id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE bands (id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE band_venue_join(id INT IDENTITY(1,1), band_id INT, venue_id INT); > GO
 
 ## Known Bugs
 
