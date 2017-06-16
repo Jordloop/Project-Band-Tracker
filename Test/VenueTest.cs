@@ -7,13 +7,13 @@ using System.Data.SqlClient;
 namespace BandTracker
 {
   [Collection("BandTracker")]
-  public class BandTest
-  // : IDisposable
+  public class VenueTest
+  //: IDisposable
 
 
   
   {
-    public BandTest()
+    public VenueTest()
     { //  This tells the application where to find the test database.
       //  This overrides "DBConfiguration.ConnectionString" in Startup.cs.
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
