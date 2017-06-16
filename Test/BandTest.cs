@@ -51,6 +51,18 @@ namespace BandTracker
       Assert.Equal(testList, result );
     }
 
+    [Fact]
+    public void Find_FindsBandInDatabase_True()
+    {
+      //Arrange
+      Band testBand = new Band("Radiohead" );
+      testBand.Save();
+      //Act
+      Band foundBand = Band.Find(testBand.GetId() );
+      //Assert
+      Assert.Equal(testBand, foundBand );
+    }
+
     public void Dispose()
     {
       Band.DeleteAll();
