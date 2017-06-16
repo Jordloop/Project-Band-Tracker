@@ -11,7 +11,7 @@ namespace BandTracker
   // : IDisposable
 
 
-  
+
   {
     public BandTest()
     { //  This tells the application where to find the test database.
@@ -19,7 +19,14 @@ namespace BandTracker
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
 
-
+    [Fact]
+    public void Test_DatabaseIsEmpty_True()
+    {
+      //Arrange, act
+      int atcual = Band.GetAll().Count;
+      //Assert
+      Assert.Equal(0, atcual);
+    }
 
   }
 }
