@@ -13,12 +13,12 @@ namespace BandTracker
       Get["/"] = _ => {
         return View["index.cshtml"];
       };
-//Band
+//Band----
       Get["/band"] = _ => {
         List<Band> allBands = Band.GetAll();
         return View["all-band.cshtml", allBands];
       };
-//----Add Band
+//----Add band
       Get["/band/add"] = _ => {
         List<Venue> allVenues = Venue.GetAll();
         return View["add-band.cshtml", allVenues];
@@ -30,7 +30,7 @@ namespace BandTracker
         newBand.AddVenue(selectedVenue);
         return View["confirmed.cshtml"];
       };
-//-----View band
+//----View band
       Get["/band/{id}"] = param => {
         Dictionary<string, object> model = new Dictionary<string, object>{};
         Band selectedBand = Band.Find(param.id);
@@ -40,8 +40,7 @@ namespace BandTracker
         model.Add("Venue", BandVenues);
         return View["this-band.cshtml", model];
       };
-
-//Venue
+//Venue----
       Get["/venue"] = _ => {
         List<Venue> allVenues = Venue.GetAll();
         return View["all-venue.cshtml", allVenues];
@@ -76,14 +75,11 @@ namespace BandTracker
       return View["confirmed.cshtml"];
     };
 //----Delete venue
-    Delete["/venue/delete/{id}"] = param => {
+      Delete["/venue/delete/{id}"] = param => {
       Venue selectedVenue = Venue.Find(param.id);
       selectedVenue.Delete();
       return View["confirmed.cshtml"];
-    };
-
-
-
+      };
     }
   }
 }

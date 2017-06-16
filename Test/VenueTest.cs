@@ -9,12 +9,9 @@ namespace BandTracker
   [Collection("BandTracker")]
   public class VenueTest : IDisposable
 
-
-
   {
     public VenueTest()
-    { //  This tells the application where to find the test database.
-      //  This overrides "DBConfiguration.ConnectionString" in Startup.cs.
+    {
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
 
@@ -33,7 +30,6 @@ namespace BandTracker
       //Arrange, Act
       Venue firstVenue = new Venue("Al's Den" );
       Venue secondVenue = new Venue("Al's Den" );
-
       //Assert
       Assert.Equal(firstVenue, secondVenue );
     }
@@ -59,7 +55,6 @@ namespace BandTracker
       testVenue.Save();
       //Act
       Venue foundVenue = Venue.Find(testVenue.GetId() );
-
       //Assert
       Assert.Equal(testVenue, foundVenue );
     }
@@ -78,7 +73,6 @@ namespace BandTracker
        //Act
        testVenue.AddBand(firstBand );
        testVenue.AddBand(secondBand );
-
        List<Band> result = testVenue.GetBands();
        List<Band> testList = new List<Band>{firstBand, secondBand };
        //Assert
@@ -91,7 +85,6 @@ namespace BandTracker
        //Arrange
        Venue testVenue = new Venue("Al's Den" );
        testVenue.Save();
-
        Band firstBand = new Band("Radiohead" );
        firstBand.Save();
        Band secondBand = new Band("Pink Floyd" );
@@ -125,16 +118,12 @@ namespace BandTracker
       //Arrange
       Venue testVenue1 = new Venue("Al's Den" );
       testVenue1.Save();
-
       Venue testVenue2 = new Venue("Sal's Hen" );
       testVenue2.Save();
-
       //Act
       testVenue1.Delete();
-
       List<Venue> resultVenueList = Venue.GetAll();
       List<Venue> testVenueList = new List<Venue>{testVenue2};
-
       //Assert
       Assert.Equal(testVenueList, resultVenueList );
     }
@@ -144,7 +133,5 @@ namespace BandTracker
       Venue.DeleteAll();
       Band.DeleteAll();
     }
-
-
   }
 }

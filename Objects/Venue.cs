@@ -31,7 +31,7 @@ namespace BandTracker
         return (idEquality && nameEquality );
       }
     }
-//Getters
+//Getters----
     public string GetName()
     {
       return _name;
@@ -41,7 +41,7 @@ namespace BandTracker
     {
       return _id;
     }
-//Setters
+//Setters----
     public void SetName(string Name )
     {
       _name = Name;
@@ -82,7 +82,7 @@ namespace BandTracker
       }
       return allVenues;
     }
-//Save()
+//----Save()
     public void Save()
     {
       SqlConnection conn = DB.Connection();
@@ -112,7 +112,7 @@ namespace BandTracker
         conn.Close();
       }
     }
-//Find()
+//----Find()
     public static Venue Find(int id )
     {
       SqlConnection conn = DB.Connection();
@@ -147,7 +147,7 @@ namespace BandTracker
       }
       return foundVenue;
     }
-//AddBand()
+//----AddBand()
     public void AddBand(Band newBand)
     {
       SqlConnection conn = DB.Connection();
@@ -171,7 +171,7 @@ namespace BandTracker
         conn.Close();
       }
     }
-//GetBands()
+//----GetBands()
     public List<Band> GetBands()
       {
         SqlConnection conn = DB.Connection();
@@ -208,7 +208,7 @@ namespace BandTracker
         }
         return bands;
       }
-//Update()
+//----Update()
     public void Update(string newName )
     {
       Console.WriteLine("Ding!");
@@ -242,7 +242,7 @@ namespace BandTracker
         conn.Close();
       }
     }
-//Delete()
+//----Delete()
     public void Delete()
     {
       SqlConnection conn = DB.Connection();
@@ -262,7 +262,7 @@ namespace BandTracker
         conn.Close();
       }
     }
-//DeleteAll()
+//----DeleteAll()
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();

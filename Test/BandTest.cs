@@ -13,8 +13,7 @@ namespace BandTracker
 
   {
     public BandTest()
-    { //  This tells the application where to find the test database.
-      //  This overrides "DBConfiguration.ConnectionString" in Startup.cs.
+    {
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=band_tracker_test;Integrated Security=SSPI;";
     }
 
@@ -33,7 +32,6 @@ namespace BandTracker
       //Arrange, Act
       Band firstBand = new Band("Radiohead" );
       Band secondBand = new Band("Radiohead" );
-
       //Assert
       Assert.Equal(firstBand, secondBand );
     }
@@ -69,7 +67,6 @@ namespace BandTracker
        //Arrange
        Band testBand = new Band("Radiohead" );
        testBand.Save();
-
        Venue firstVenue = new Venue("Al's Den" );
        firstVenue.Save();
        Venue secondVenue = new Venue("Porland Zoo" );
@@ -77,7 +74,6 @@ namespace BandTracker
        //Act
        testBand.AddVenue(firstVenue );
        testBand.AddVenue(secondVenue );
-
        List<Venue> result = testBand.GetVenues();
        List<Venue> testList = new List<Venue>{firstVenue, secondVenue };
        //Assert
@@ -90,7 +86,6 @@ namespace BandTracker
        //Arrange
        Band testBand = new Band("Radiohead" );
        testBand.Save();
-
        Venue firstVenue = new Venue("Al's Den" );
        firstVenue.Save();
        Venue secondVenue = new Venue("Portland Zoo" );
