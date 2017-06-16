@@ -7,8 +7,7 @@ using System.Data.SqlClient;
 namespace BandTracker
 {
   [Collection("BandTracker")]
-  public class BandTest
-  // : IDisposable
+  public class BandTest : IDisposable
 
 
 
