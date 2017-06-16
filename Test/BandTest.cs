@@ -28,5 +28,16 @@ namespace BandTracker
       Assert.Equal(0, atcual);
     }
 
+    [Fact]
+    public void Equals_NamesAreTheSame_True()
+    {
+      //Arrange, Act
+      Band firstBand = new Band("Radiohead");
+      Band secondBand = new Band("Radiohead");
+
+      //Assert
+      Assert.Equal(firstBand, secondBand);
+    }
+
   }
 }
