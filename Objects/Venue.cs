@@ -112,7 +112,7 @@ namespace BandTracker
         conn.Close();
       }
     }
-//Fine()
+//Find()
     public static Venue Find(int id )
     {
       SqlConnection conn = DB.Connection();
@@ -147,8 +147,32 @@ namespace BandTracker
       }
       return foundVenue;
     }
+//AddBand()
+    public void AddBand(Band newBand)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("INSERT INTO band_venue_join(band_id, venue_id) VALUES (@BandId, @VenueId)", conn );
+
+      SqlParameter BandIdParam = new SqlParameter();
+      BandIdParam.ParameterName = "@BandId";
+      BandIdParam.Value = newBand.GetId();
+      cmd.Parameters.Add(BandIdParam );
+
+      SqlParameter VenueIdParam = new SqlParameter();
+      VenueIdParam.ParameterName = "@VenueId";
+      VenueIdParam.Value = this.GetId();
+      cmd.Parameters.Add(VenueIdParam );
+
+      cmd.ExecuteNonQuery();
+      if(conn != null )
+      {
+        conn.Close();
+      }
+    }
 //Update()
-    public void Update(string newName)
+    public void Update(string newName )
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
@@ -199,7 +223,7 @@ namespace BandTracker
       {
         conn.Close();
       }
-        }
+    }
 //DeleteAll()
     public static void DeleteAll()
     {
