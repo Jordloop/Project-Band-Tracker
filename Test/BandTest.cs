@@ -67,21 +67,41 @@ namespace BandTracker
      public void AddVenue_AddVenuesToOneBand_True()
      {
        //Arrange
-       Band testBand = new Band("Radiohead");
+       Band testBand = new Band("Radiohead" );
        testBand.Save();
 
-       Venue firstVenue = new Venue("Al's Den");
+       Venue firstVenue = new Venue("Al's Den" );
        firstVenue.Save();
-       Venue secondVenue = new Venue("Porland Zoo");
+       Venue secondVenue = new Venue("Porland Zoo" );
        secondVenue.Save();
        //Act
-       testBand.AddVenue(firstVenue);
-       testBand.AddVenue(secondVenue);
+       testBand.AddVenue(firstVenue );
+       testBand.AddVenue(secondVenue );
 
        List<Venue> result = testBand.GetVenues();
-       List<Venue> testList = new List<Venue>{firstVenue, secondVenue};
+       List<Venue> testList = new List<Venue>{firstVenue, secondVenue };
        //Assert
-       Assert.Equal(testList, result);
+       Assert.Equal(testList, result );
+     }
+
+     [Fact]
+     public void GetVenues_ReturnsAllVenuesFromOneBand_True()
+     {
+       //Arrange
+       Band testBand = new Band("Radiohead" );
+       testBand.Save();
+
+       Venue firstVenue = new Venue("Al's Den" );
+       firstVenue.Save();
+       Venue secondVenue = new Venue("Portland Zoo" );
+       secondVenue.Save();
+       //Act
+       testBand.AddVenue(firstVenue );
+       testBand.AddVenue(secondVenue );
+       List<Venue> testVenues = testBand.GetVenues();
+       List<Venue> contolVenues = new List<Venue>{firstVenue, secondVenue };
+       //Assert
+       Assert.Equal(contolVenues, testVenues );
      }
 
     public void Dispose()

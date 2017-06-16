@@ -68,21 +68,41 @@ namespace BandTracker
      public void AddBand_AddBandToOneVenue_True()
      {
        //Arrange
-       Venue testVenue = new Venue("Al's Den");
+       Venue testVenue = new Venue("Al's Den" );
        testVenue.Save();
 
-       Band firstBand = new Band("Radiohead");
+       Band firstBand = new Band("Radiohead" );
        firstBand.Save();
-       Band secondBand = new Band("Pink Floyd");
+       Band secondBand = new Band("Pink Floyd" );
        secondBand.Save();
        //Act
-       testVenue.AddBand(firstBand);
-       testVenue.AddBand(secondBand);
+       testVenue.AddBand(firstBand );
+       testVenue.AddBand(secondBand );
 
        List<Band> result = testVenue.GetBands();
-       List<Band> testList = new List<Band>{firstBand, secondBand};
+       List<Band> testList = new List<Band>{firstBand, secondBand };
        //Assert
-       Assert.Equal(testList, result);
+       Assert.Equal(testList, result );
+     }
+
+     [Fact]
+     public void GetBands_ReturnsAllBandsFromOneVenue_True()
+     {
+       //Arrange
+       Venue testVenue = new Venue("Al's Den" );
+       testVenue.Save();
+
+       Band firstBand = new Band("Radiohead" );
+       firstBand.Save();
+       Band secondBand = new Band("Pink Floyd" );
+       secondBand.Save();
+       //Act
+       testVenue.AddBand(firstBand );
+       testVenue.AddBand(secondBand );
+       List<Band> testBands = testVenue.GetBands();
+       List<Band> contolBands = new List<Band>{firstBand, secondBand };
+       //Assert
+       Assert.Equal(contolBands, testBands );
      }
 
     [Fact]
