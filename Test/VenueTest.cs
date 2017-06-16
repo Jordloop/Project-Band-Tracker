@@ -95,7 +95,7 @@ namespace BandTracker
       List<Venue> testVenueList = new List<Venue>{testVenue2};
 
       //Assert
-      Assert.Equal(testVenueList, resultVenueList);
+      Assert.Equal(testVenueList, resultVenueList );
     }
 
     public void Dispose()
