@@ -11,7 +11,7 @@ namespace BandTracker
   //: IDisposable
 
 
-  
+
   {
     public VenueTest()
     { //  This tells the application where to find the test database.

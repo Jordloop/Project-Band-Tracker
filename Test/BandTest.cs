@@ -20,7 +20,7 @@ namespace BandTracker
     }
 
     [Fact]
-    public void Test_DatabaseIsEmpty_True()
+    public void GetAll_DatabaseIsEmpty_True()
     {
       //Arrange, act
       int atcual = Band.GetAll().Count;
