@@ -9,11 +9,27 @@ namespace BandTracker
     private string _name;
     private int _id;
 
-    public Venue(string Name, int Id=0)
+    public Venue(string Name, int Id=0 )
     {
       _name = Name;
       _id =Id;
 
+    }
+
+    public override bool Equals(System.Object otherVenue )
+    {
+      if (!(otherVenue is Venue ))
+      {
+        return false;
+      }
+      else
+      {
+        Venue newVenue = (Venue) otherVenue;
+        bool idEquality = (this.GetId() == newVenue.GetId());
+        bool nameEquality = (this.GetName() == newVenue.GetName());
+
+        return (idEquality && nameEquality );
+      }
     }
 //Getters
     public string GetName()
@@ -26,11 +42,11 @@ namespace BandTracker
       return _id;
     }
 //Setters
-    public void SetName(string Name)
+    public void SetName(string Name )
     {
       _name = Name;
     }
-    public void SetId(int Id)
+    public void SetId(int Id )
     {
       _id = Id;
     }
@@ -44,16 +60,16 @@ namespace BandTracker
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM venues;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM venues;", conn );
       SqlDataReader rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
       {
-        int venueId = rdr.GetInt32(0);
-        string venueName = rdr.GetString(1);
+        int venueId = rdr.GetInt32(0 );
+        string venueName = rdr.GetString(1 );
 
-        Venue newVenue = new Venue(venueName, venueId);
-        allVenues.Add(newVenue);
+        Venue newVenue = new Venue(venueName, venueId );
+        allVenues.Add(newVenue );
       }
 
       if (rdr != null )

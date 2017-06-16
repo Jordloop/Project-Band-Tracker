@@ -9,11 +9,26 @@ namespace BandTracker
     private string _name;
     private int _id;
 
-    public Band(string Name, int Id=0)
+    public Band(string Name, int Id=0 )
     {
       _name = Name;
       _id =Id;
 
+    }
+    public override bool Equals(System.Object otherBand )
+    {
+      if (!(otherBand is Band))
+      {
+        return false;
+      }
+      else
+      {
+        Band newBand = (Band) otherBand;
+        bool idEquality = (this.GetId() == newBand.GetId());
+        bool nameEquality = (this.GetName() == newBand.GetName());
+
+        return (idEquality && nameEquality );
+      }
     }
 //Getters
     public string GetName()
@@ -26,11 +41,11 @@ namespace BandTracker
       return _id;
     }
 //Setters
-    public void SetName(string Name)
+    public void SetName(string Name )
     {
       _name = Name;
     }
-    public void SetId(int Id)
+    public void SetId(int Id )
     {
       _id = Id;
     }
@@ -45,16 +60,16 @@ namespace BandTracker
     SqlConnection conn = DB.Connection();
     conn.Open();
 
-    SqlCommand cmd = new SqlCommand("SELECT * FROM bands;", conn);
+    SqlCommand cmd = new SqlCommand("SELECT * FROM bands;", conn );
     SqlDataReader rdr = cmd.ExecuteReader();
 
     while(rdr.Read())
     {
-      int bandId = rdr.GetInt32(0);
-      string bandName = rdr.GetString(1);
+      int bandId = rdr.GetInt32(0 );
+      string bandName = rdr.GetString(1 );
 
-      Band newBand = new Band(bandName, bandId);
-      allBands.Add(newBand);
+      Band newBand = new Band(bandName, bandId );
+      allBands.Add(newBand );
     }
 
     if (rdr != null )
