@@ -7,8 +7,11 @@
     @foreach (var venue in Model)
     {
       <li><a href="/venue/@venue.GetId()">@venue.GetName():</a><br>
-        <a href="/venue/update/@venue.GetId()">Update </a>
-      <a href="/venue/delete/@venue.GetId()"> Delete</a></li></li>
+        <form action="/venue/delete/@venue.GetId()" method="post">
+          <a href="/venue/update/@venue.GetId()">Update </a>
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit">Delete</button Delete</a></li></li>
+        </form>
     }
   }
   <a href="venue/add">Add Venue</a>

@@ -75,6 +75,13 @@ namespace BandTracker
       selectedVenue.Update(Request.Form["update-venue"]);
       return View["confirmed.cshtml"];
     };
+//====Delete venue
+    Delete["/venue/delete/{id}"] = param => {
+      Venue selectedVenue = Venue.Find(param.id);
+      selectedVenue.Delete();
+      return View["confirmed.cshtml"];
+    };
+
 
 
     }
