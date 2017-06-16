@@ -27,7 +27,8 @@ namespace BandTracker
       Post["/band/add"] = _ => {
         Band newBand = new Band(Request.Form["band-name"]);
         newBand.Save();
-        newBand.AddVenue(Request.Form["venue- id"]);
+        Venue selectedVenue = Venue.Find(Request.Form["venue-id"]);
+        newBand.AddVenue(selectedVenue);
         return View["confirmed.cshtml"];
       };
 
