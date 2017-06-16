@@ -9,10 +9,13 @@
 
 ## Setup/Installation Requirements
 
-
-
-In SQLCMD:
-CREATE DATABASE band_tracker; > GO > USE band_tracker > GO > CREATE TABLE venues(id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE bands (id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE band_venue_join(id INT IDENTITY(1,1), band_id INT, venue_id INT); > GO
+1. Clone git repo.
+2. Create database:
+    In SQLCMD:
+    CREATE DATABASE band_tracker; > GO > USE band_tracker > GO > CREATE TABLE venues(id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE bands (id INT IDENTITY(1,1), name VARCHAR(255)); > GO > CREATE TABLE band_venue_join(id INT IDENTITY(1,1), band_id INT, venue_id INT); > GO
+3. Start local Server:
+    In PowerShell:
+      dnx kestrel
 
 ## Known Bugs
 
@@ -24,9 +27,11 @@ Contact me at jordanloop@gmail.com
 
 ## Technologies Used
 
+* Nancy
 * ASP.NET 5
 * C#
 * HTML
+* Xunit
 
 ### License
 
