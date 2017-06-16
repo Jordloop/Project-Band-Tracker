@@ -9,11 +9,11 @@ namespace BandTracker
     public HomeModule()
     {
 
-// root -> index.cshtml
+//root
       Get["/"] = _ => {
         return View["index.cshtml"];
       };
-
+//Band
       Get["/band"] = _ => {
         List<Band> allBands = Band.GetAll();
         return View["all-band.cshtml", allBands];
@@ -32,6 +32,17 @@ namespace BandTracker
         return View["confirmed.cshtml"];
       };
 
+      Get["/band/{id}"] = param => {
+        Dictionary<string, object> model = new Dictionary<string, object>{};
+        Band selectedBand = Band.Find(param.id);
+        List<Venue> BandVenue = selectedBand.GetVenues();
+
+        model.Add("Band", selectedBand);
+        model.Add("Venue", BandVenue);
+        return View["this-band.cshtml", model];
+      };
+      
+//Venue
       Get["/venue"] = _ => {
         List<Venue> allVenues = Venue.GetAll();
         return View["all-venue.cshtml", allVenues];
