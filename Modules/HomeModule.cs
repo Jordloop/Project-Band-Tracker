@@ -8,7 +8,7 @@ namespace BandTracker
   {
     public HomeModule()
     {
-
+ 
 //root
       Get["/"] = _ => {
         return View["index.cshtml"];
