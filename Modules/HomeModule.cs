@@ -8,7 +8,7 @@ namespace BandTracker
   {
     public HomeModule()
     {
- 
+
 //root
       Get["/"] = _ => {
         return View["index.cshtml"];
@@ -34,12 +34,23 @@ namespace BandTracker
       Get["/band/{id}"] = param => {
         Dictionary<string, object> model = new Dictionary<string, object>{};
         Band selectedBand = Band.Find(param.id);
-        List<Venue> BandVenues = selectedBand.GetVenues();
+        List<Venue> bandVenues = selectedBand.GetVenues();
+        List<Venue> allVenues = Venue.GetAll();
 
         model.Add("Band", selectedBand);
-        model.Add("Venue", BandVenues);
+        model.Add("Venue", bandVenues);
+        model.Add("allVenues", allVenues);
+
         return View["this-band.cshtml", model];
       };
+//----Add venue to band
+      Post["/band/add-venue/{id}"] = param => {
+        Band selectedBand = Band.Find(param.id);
+        Venue selectedVenue = Venue.Find(Request.Form["venue-id"]);
+
+        selectedBand.AddVenue(selectedVenue);
+        return View["confirmed.cshtml"];
+      };      
 //Venue----
       Get["/venue"] = _ => {
         List<Venue> allVenues = Venue.GetAll();

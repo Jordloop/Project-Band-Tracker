@@ -11,3 +11,13 @@
     }
   </ol>
 }
+
+<form action='/band/add-venue/@Model["Band"].GetId()' method="post">
+  <select name = "venue-id">
+  @foreach (var venue in Model["allVenues"])
+  {
+    <option value="@venue.GetId()">@venue.GetName()</option>
+  }
+  </select>
+  <button type="submit">Add Venue</button>
+</form>

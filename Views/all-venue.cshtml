@@ -6,12 +6,21 @@
   {
     @foreach (var venue in Model)
     {
-      <li><a href="/venue/@venue.GetId()">@venue.GetName():</a><br>
-        <form action="/venue/delete/@venue.GetId()" method="post">
-          <a href="/venue/update/@venue.GetId()">Update </a>
-          <input type="hidden" name="_method" value="DELETE">
-          <button type="submit">Delete</button Delete</a></li></li>
-        </form>
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>@venue.GetName()</h3>
+              <p><a href="/venue/@venue.GetId()" class="btn btn-primary" role="button">View Venue</a></p>
+              <form action="/venue/delete/@venue.GetId()" method="post">
+                <a href="/venue/update/@venue.GetId()">Update </a>
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button Delete</a></li></li>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     }
   }
   <br><a href="venue/add">Add Venue</a>
