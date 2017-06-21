@@ -2,14 +2,22 @@
   Layout ="Shared/_Layout.cshtml";
 }
 
-<form action="/band/add" method="post">
-  <label for="band-name">Band Name</label>
-  <input name="band-name" type="text">
-  <select name = "venue-id">
-  @foreach (var venue in Model)
-  {
-    <option value="@venue.GetId()">@venue.GetName()</option>
-  }
-  </select>
-  <br><br><button type="submit">Add Band</button>
-</form>
+@if (@Model.Count != 0)
+{
+
+  <form action="/band/add" method="post">
+    <label for="band-name">Band Name</label>
+    <input name="band-name" type="text">
+    <select name = "venue-id">
+    @foreach (var venue in Model)
+    {
+      <option value="@venue.GetId()">@venue.GetName()</option>
+    }
+    </select>
+    <br><br><button type="submit">Add Band</button>
+  </form>
+}
+else
+{
+  <p>You must have a add a venue before you add a band.</p>
+}
