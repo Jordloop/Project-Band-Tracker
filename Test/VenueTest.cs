@@ -25,7 +25,7 @@ namespace BandTracker
     }
 
     [Fact]
-    public void Test_NamesAreTheSame_True()
+    public void Equals_NamesAreTheSame_True()
     {
       //Arrange, Act
       Venue firstVenue = new Venue("Al's Den" );
@@ -35,7 +35,7 @@ namespace BandTracker
     }
 
     [Fact]
-    public void Test_SavesVenueToDatabase_True()
+    public void Save_SavesVenueToDatabase_True()
     {
       //Arrange
       Venue testVenue = new Venue("Al's Den" );
